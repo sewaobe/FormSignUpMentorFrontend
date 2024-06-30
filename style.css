@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 1440px;
+    height: 800px;
+    font-family: 'Poppins';
+    font-size: 16px;
+    background-color: hsl(0, 100%, 74%);
+    background-image: url('./images/bg-intro-desktop.png');
+    object-fit: cover;
+}
+
+.container {
+    margin: 120px 160px;
+    display: flex;
+}
+
+.container__description {
+    width: 500px;
+    height: 560px;
+    margin-right: 75px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container__description h1 {
+    line-height: 55px;
+    font-size: 49px;
+    padding-bottom: 25px;
+}
+
+.container__formLogin {
+    width: 540px;
+}
+
+.container__formLogin {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+/* formLogin -- header */
+.container__formLogin .container__formLogin--header {
+    color: white;
+    font-size: 14px;
+    background-color: hsl(248, 32%, 49%);
+    border-radius: 10px;
+    box-shadow: 0 7px #db6468;
+}
+
+.container__formLogin .container__formLogin--header p {
+    margin: 25px 112px 17px 113px;
+}
+
+/* formLogin -- form */
+.container__formLogin--main {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 8px #db6468;
+
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+.container__formLogin--main #formLogin {
+    margin: 40px;
+}
+.container__formLogin--main #formLogin .formGroup {
+    margin-bottom: 20px;
+}
+
+.container__formLogin--main #formLogin input {
+    height: 55px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid rgb(175, 173, 173);
+    font-weight: 600;
+    color: hsl(245, 5%, 55%);
+    padding-left: 30px;
+    &:focus {
+        outline: none;
+        color: black;
+        border: 2px solid hsl(246, 25%, 77%);
+    }
+}
+
+.container__formLogin--main #formLogin button {
+    height: 50px;
+    width: 100%;
+    background-color: hsl(154, 59%, 51%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px hsl(154, 57%, 40%);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+/* formLogin -- form --footer */
+.container__formLogin--footer {
+    font-size: 11px;
+    font-weight: 600;
+    color: hsl(246, 25%, 77%);
+    display: flex;
+    justify-content: center;
+}
+.container__formLogin--footer strong {
+    color: hsl(0, 100%, 74%);
+}
+
+/* inValid */
+.inValid {
+    position: relative;
+
+    p {
+        color: hsl(0, 100%, 74%);
+        margin-top: 10px;
+        font-size: 13px;
+        font-style: italic;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &:after {
+        top: 0px;
+        right: 0px;
+        position: absolute;
+        font-family: 'FontAwesome';
+        font-size: 25px;
+        content: '\f06a';
+        color: hsl(0, 100%, 74%);
+
+        margin: 15px 27px;
+    }
+}
+.inValid input {
+    border: 2px solid hsl(0, 100%, 74%) !important;
+}
+.inValid input:not([name='emailAddress']) {
+    &::placeholder {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon-32x32.png"
+        />
+
+        <title>Frontend Mentor | Intro component with sign up form</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="container__description">
+                <h1 class="container__description--title">
+                    Learn to code by watching others
+                </h1>
+
+                <p class="container__description--content">
+                    See how experienced developers solve problems in real-time.
+                    Watching scripted tutorials is great, but understanding how
+                    developers think is invaluable.
+                </p>
+            </div>
+
+            <div class="container__formLogin">
+                <div class="container__formLogin--header">
+                    <p>
+                        <strong>Try it free 7 days</strong> then $20/mo.
+                        thereafter
+                    </p>
+                </div>
+
+                <div class="container__formLogin--main">
+                    <form action="" method="POST" id="formLogin">
+                        <div class="formGroup">
+                            <input
+                                name="firstName"
+                                type="text"
+                                placeholder="First Name"
+                                spellcheck="false"
+                                rules="required:{First Name cannot be empty}"
+                            />
+                            <p class="validMessage">
+                                <!-- First Name cannot be empty -->
+                            </p>
+                        </div>
+                        <div class="formGroup">
+                            <input
+                                name="lastName"
+                                type="text"
+                                placeholder="Last Name "
+                                spellcheck="false"
+                                rules="required:{Last Name cannot be empty}"
+                            />
+                            <p class="validMessage"></p>
+                        </div>
+                        <div class="formGroup">
+                            <input
+                                name="emailAddress"
+                                type="email"
+                                placeholder="Email Address"
+                                spellcheck="false"
+                                rules="email:{Looks like this is not an emai}"
+                            />
+                            <p class="validMessage" id="resizeElement"></p>
+                        </div>
+                        <div class="formGroup">
+                            <input
+                                name="password"
+                                type="password"
+                                placeholder="Password"
+                                spellcheck="false"
+                                rules="required:{Password cannot be empty}"
+                            />
+                            <p class="validMessage"></p>
+                        </div>
+
+                        <button>CLAIM YOUR FREE TRIAL</button>
+                        <div class="container__formLogin--footer">
+                            <p>
+                                By clicking the button, you are agreeing to our
+                                <strong>Terms and Services</strong>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script
+            type="text/javascript"
+            src="http://localhost:8086/validator.js"
+        ></script>
+        <script>
+            const formLogin = new Validator('#formLogin', {
+                errorElement: '.validMessage',
+            });
+
+            formLogin.onSubmit = data => {
+                console.log(data);
+            };
+
+            // Handle placeholder email invalid.
+            const inputEmail = document.querySelector(
+                'input[name="emailAddress"]'
+            );
+
+            //Event resize API.
+            const myObserver = new ResizeObserver(entries => {
+                //84.328125 -> Height of div contains input invalid.
+                // this will get called whenever div dimension changes
+                entries.forEach(entry => {
+                    if (entry.contentRect.height === 84.328125) {
+                        inputEmail.placeholder = 'email@example.com';
+                        inputEmail.value = '';
+                        console.log(entry.target);
+                    }
+                });
+            });
+            myObserver.observe(inputEmail.parentElement);
+        </script>
+    </body>
+</html>
